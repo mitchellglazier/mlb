@@ -1,0 +1,11 @@
+<mat-card class="player-card mat-elevation-z4">
+    <mat-card-title-group>
+      <mat-card-title>{{player?.firstName}} {{player?.lastName}}</mat-card-title>
+      <mat-card-subtitle>#{{player?.number}}</mat-card-subtitle>
+      <mat-card-subtitle>Birth Place: {{player?.birthCity}}, {{player?.birthStateProvince}} {{player?.birthCountry}}</mat-card-subtitle>
+      <mat-card-subtitle>Primary Position: {{player?.primaryPosition}}</mat-card-subtitle>
+      <mat-card-subtitle>Bat Side: {{player?.batSide}}</mat-card-subtitle>
+      <mat-card-subtitle>Throw Side: {{player?.throwSide}}</mat-card-subtitle>
+      <img mat-card-lg-image src={{player?.picture}} >
+    </mat-card-title-group>
+  </mat-card>

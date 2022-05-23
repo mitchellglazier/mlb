@@ -1,0 +1,51 @@
+<h1>MLB Teams</h1>
+
+<div 
+    fxLayout="row" 
+    fxLayoutAlign="space-around center" 
+    fxLayout.lt-md="column" 
+    fxLayoutAlign.lt-md="space-around stretch" 
+    fxLayoutGap="20px"
+    style="margin: 10px">
+    <mat-form-field>
+        <mat-label>Team Search</mat-label>
+        <input type="text" matInput [(ngModel)]="teamSearch" (keyup)="searchTeams()" placeholder="Milwaukee Brewers">
+        <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Filter by league</mat-label>
+        <mat-select name="league_filter" (selectionChange)="filterLeague()" [(ngModel)]="selectedLeague">
+            <mat-option [value]="">All Teams</mat-option>
+          <mat-option *ngFor="let league of leagues" [value]="league">
+            {{league}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Filter by division</mat-label>
+        <mat-select name="division_filter" (selectionChange)="filterDivision()" [(ngModel)]="selectedDivision">
+            <mat-option [value]="">All Teams</mat-option>
+          <mat-option *ngFor="let division of divisions" [value]="division">
+            {{division}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Sort teams</mat-label>
+        <mat-select name="division_filter" (selectionChange)="sortTeams()" [(ngModel)]="selectedSort">
+          <mat-option [value]="'alphabetically'">
+            Alphabetically
+          </mat-option>
+          <mat-option [value]="'league/divisions'">
+            League/Divisions
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+</div>
+
+<div fxLayout="row wrap" fxLayoutAlign="space-around center" fxLayout.lt-md="column" fxLayoutAlign.lt-md="space-around stretch">
+    <div *ngFor="let team of filteredTeams" fxFlex="20">
+        <app-team-card [team]=team></app-team-card>
+    </div>
+</div>
+

@@ -1,0 +1,8 @@
+<mat-card class="mat-elevation-z4" style="margin: 5px; cursor: pointer" (click)="sendData(team)" routerLink="/team/{{team.id}}">
+    <mat-card-title-group>
+      <mat-card-title>{{team?.location}}</mat-card-title>
+      <mat-card-title>{{team?.nickname}}</mat-card-title>
+      <mat-card-subtitle>{{team?.division}}</mat-card-subtitle>
+      <img mat-card-sm-image src={{team?.logo}} >
+    </mat-card-title-group>
+  </mat-card>
